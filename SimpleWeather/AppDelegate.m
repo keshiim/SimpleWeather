@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "WXController.h"
+#import <TSMessages/TSMessage.h>
 
 @implementation AppDelegate
 
@@ -14,8 +16,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // 1
+    self.window.rootViewController = [[WXController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    // 2
+    [TSMessage setDefaultViewController:self.window.rootViewController];
+    
     return YES;
 }
 
